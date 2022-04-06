@@ -4,15 +4,15 @@ import { Typography } from "@material-ui/core";
 import Wish from "./wish";
 
 const Wishlist = () => {
-  const user = JSON.parse(localStorage.getItem("profile"));
+  const wishlist = JSON.parse(localStorage.getItem("wishlist"));
   const posts = useSelector((state) => state.Posts);
 
   return (
     <div>
-      <Typography>user: {user?.result.wishlist}</Typography>
+      <Typography></Typography>
       {posts.map((post) => (
         <div style={{ width: "70%" }}>
-          {user?.result?.wishlist.includes(post._id) ? (
+          {wishlist.includes(post._id) ? (
             <div style={{ marginBottom: 12 }}>
               <Wish post={post} />
             </div>

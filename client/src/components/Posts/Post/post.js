@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./styles";
 import {
   Card,
@@ -19,6 +19,7 @@ const Post = ({ post }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
+  var list = JSON.parse(localStorage.getItem("wishlist"));
   const history = useNavigate();
 
   const handleEdit = () => {
@@ -29,6 +30,15 @@ const Post = ({ post }) => {
   const handleTitleClick = () => {
     console.log("Title Click worked");
     history("/FullPost", { state: { post: post } });
+  };
+
+  const handleWish = () => {
+    list.includes(post._id)
+      ? (list = list.filter((result) => result !== String(post._id)))
+      : list.push(post._id);
+    localStorage.setItem("wishlist", JSON.stringify(list));
+    // setList(list);
+    console.log(JSON.parse(localStorage.getItem("wishlist")));
   };
 
   return (
@@ -91,15 +101,6 @@ const Post = ({ post }) => {
         </div>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button
-          size="small"
-          color="primary"
-          disabled={!user?.result}
-          onClick={() => {
-            dispatch(addWish(post._id));
-          }}
-        ></Button>
-
         {user?.result?.googleId === post?.creator ||
           (user?.result?._id === post?.creator && (
             <Button
@@ -117,10 +118,11 @@ const Post = ({ post }) => {
           <Button
             onClick={() => {
               dispatch(addWish(post._id));
-              console.log(user);
+              handleWish();
+              // console.log(user);
             }}
           >
-            {user?.result.wishlist.includes(post._id)
+            {list.includes(post._id)
               ? "Remove from wishlist"
               : "Add to wishlist"}
           </Button>
