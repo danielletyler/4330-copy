@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Post from "./Post/post";
-import { Grid, CircularProgress, TextField } from "@material-ui/core";
+import {
+  Grid,
+  CircularProgress,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import useStyles from "./styles";
 import { useSelector } from "react-redux";
 
