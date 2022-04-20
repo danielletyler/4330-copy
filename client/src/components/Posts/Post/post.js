@@ -73,36 +73,51 @@ const Post = ({ post }) => {
       >
         <Typography
           variant="body2"
-          color={post.furniture_tag ? "textPrimary" : "textSecondary"}
-          style={{ marginRight: 12 }}
+          style={{
+            marginRight: 12,
+            fontWeight: post.furniture_tag && "bold",
+            color: post.furniture_tag ? "black" : "rgba(0,0,0,.25)",
+          }}
         >
           furniture
         </Typography>
         <Typography
           variant="body2"
-          color={post.electronic_tag ? "textPrimary" : "textSecondary"}
-          style={{ marginRight: 12 }}
+          style={{
+            marginRight: 12,
+            fontWeight: post.electronic_tag && "bold",
+            color: post.electronic_tag ? "black" : "rgba(0,0,0,.25)",
+          }}
         >
           electronic
         </Typography>
         <Typography
           variant="body2"
-          color={post.book_tag ? "textPrimary" : "textSecondary"}
-          style={{ marginRight: 12 }}
+          style={{
+            marginRight: 12,
+            fontWeight: post.book_tag && "bold",
+            color: post.book_tag ? "black" : "rgba(0,0,0,.25)",
+          }}
         >
           book
         </Typography>
         <Typography
           variant="body2"
-          color={post.music_tag ? "textPrimary" : "textSecondary"}
-          style={{ marginRight: 12 }}
+          style={{
+            marginRight: 12,
+            fontWeight: post.music_tag && "bold",
+            color: post.music_tag ? "black" : "rgba(0,0,0,.25)",
+          }}
         >
           music
         </Typography>
         <Typography
           variant="body2"
-          color={post.sports_tag ? "textPrimary" : "textSecondary"}
-          style={{ marginRight: 12 }}
+          style={{
+            marginRight: 12,
+            fontWeight: post.sports_tag && "bold",
+            color: post.sports_tag ? "black" : "rgba(0,0,0,.25)",
+          }}
         >
           sports
         </Typography>
