@@ -25,20 +25,32 @@ const Posts = ({ setCurrentId }) => {
         variant="outlined"
         onChange={(e) => setSearch(e.target.value)}
       />
-      <Grid
-        className={classes.container}
-        container
-        alignItems="stretch"
-        spacing={3}
-      >
-        {posts.map((post) => (
-          <Grid key={post._id} item xs={12} sm={6} md={search !== "" ? 12 : 4}>
-            {post.title.includes(search) && (
+      {search === "" ? (
+        <Grid
+          className={classes.container}
+          container
+          alignItems="stretch"
+          spacing={3}
+        >
+          {posts.map((post) => (
+            <Grid key={post._id} item xs={12} sm={6} md={4}>
               <Post post={post} setCurrentId={setCurrentId} />
-            )}
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <div style={{ width: "100vh" }}>
+          {posts.map((post) => (
+            <div style={{ width: "40vh" }}>
+              {post.title.includes(search) && (
+                <div style={{ marginTop: 20, marginBottom: 20 }}>
+                  <Post post={post} setCurrentId={setCurrentId} />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
