@@ -18,6 +18,11 @@ const Form = ({ currentId }) => {
     selectedFile: "",
     price: "",
     contact: "",
+    furniture_tag: "",
+    electronic_tag: "",
+    book_tag: "",
+    music_tag: "",
+    sports_tag: "",
   });
   const user = JSON.parse(localStorage.getItem("profile"));
 
@@ -29,6 +34,11 @@ const Form = ({ currentId }) => {
       selectedFile: "",
       price: "",
       contact: "",
+      furniture_tag: "",
+      electronic_tag: "",
+      book_tag: "",
+      music_tag: "",
+      sports_tag: "",
     });
   };
 
@@ -91,16 +101,73 @@ const Form = ({ currentId }) => {
             setPostData({ ...postData, message: e.target.value })
           }
         />
-        <TextField
-          name="tags"
-          variant="outlined"
-          label="Tags"
-          fullWidth
-          value={postData.tags}
-          onChange={(e) =>
-            setPostData({ ...postData, tags: e.target.value.split(",") })
-          }
-        />
+        <div style={{ display: "flex" }}>
+          <Button
+            name="furniture"
+            variant="contained"
+            fullWidth
+            color={postData.furniture_tag ? "primary" : "secondary"}
+            onClick={
+              postData.furniture_tag
+                ? (e) => setPostData({ ...postData, furniture_tag: false })
+                : (e) => setPostData({ ...postData, furniture_tag: true })
+            }
+          >
+            furniture
+          </Button>
+          <Button
+            name="electronic"
+            variant="contained"
+            fullWidth
+            color={postData.electronic_tag ? "primary" : "secondary"}
+            onClick={
+              postData.electronic_tag
+                ? (e) => setPostData({ ...postData, electronic_tag: false })
+                : (e) => setPostData({ ...postData, electronic_tag: true })
+            }
+          >
+            electronic
+          </Button>
+          <Button
+            name="furniture"
+            variant="contained"
+            fullWidth
+            color={postData.book_tag ? "primary" : "secondary"}
+            onClick={
+              postData.book_tag
+                ? (e) => setPostData({ ...postData, book_tag: false })
+                : (e) => setPostData({ ...postData, book_tag: true })
+            }
+          >
+            book
+          </Button>
+          <Button
+            name="furniture"
+            variant="contained"
+            fullWidth
+            color={postData.music_tag ? "primary" : "secondary"}
+            onClick={
+              postData.music_tag
+                ? (e) => setPostData({ ...postData, music_tag: false })
+                : (e) => setPostData({ ...postData, music_tag: true })
+            }
+          >
+            music
+          </Button>
+          <Button
+            name="furniture"
+            variant="contained"
+            fullWidth
+            color={postData.sports_tag ? "primary" : "secondary"}
+            onClick={
+              postData.sports_tag
+                ? (e) => setPostData({ ...postData, sports_tag: false })
+                : (e) => setPostData({ ...postData, sports_tag: true })
+            }
+          >
+            sports
+          </Button>
+        </div>
         <TextField
           name="price"
           variant="outlined"

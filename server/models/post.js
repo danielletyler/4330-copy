@@ -19,6 +19,11 @@ const postSchema = mongoose.Schema({
   ],
   price: String,
   contact: String,
+  furniture_tag: Boolean,
+  electronic_tag: Boolean,
+  book_tag: Boolean,
+  music_tag: Boolean,
+  sports_tag: Boolean,
 });
 
 const Post = mongoose.model("Post", postSchema);

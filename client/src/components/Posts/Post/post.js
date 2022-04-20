@@ -62,9 +62,49 @@ const Post = ({ post }) => {
           </Button>
         </div>
       )}
-      <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary">
-          {post.tags.map((tag) => `#${tag} `)}
+
+      <div
+        style={{
+          display: "flex",
+          marginLeft: 18,
+          marginTop: 20,
+          marginBottom: 20,
+        }}
+      >
+        <Typography
+          variant="body2"
+          color={post.furniture_tag ? "textPrimary" : "textSecondary"}
+          style={{ marginRight: 12 }}
+        >
+          furniture
+        </Typography>
+        <Typography
+          variant="body2"
+          color={post.electronic_tag ? "textPrimary" : "textSecondary"}
+          style={{ marginRight: 12 }}
+        >
+          electronic
+        </Typography>
+        <Typography
+          variant="body2"
+          color={post.book_tag ? "textPrimary" : "textSecondary"}
+          style={{ marginRight: 12 }}
+        >
+          book
+        </Typography>
+        <Typography
+          variant="body2"
+          color={post.music_tag ? "textPrimary" : "textSecondary"}
+          style={{ marginRight: 12 }}
+        >
+          music
+        </Typography>
+        <Typography
+          variant="body2"
+          color={post.sports_tag ? "textPrimary" : "textSecondary"}
+          style={{ marginRight: 12 }}
+        >
+          sports
         </Typography>
       </div>
       <Typography
